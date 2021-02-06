@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import Input from "../../components/input";
 import axios from "axios";
 import { Router, useRouter } from 'next/router';
-import { toast } from "react-toastify";
+import useMessage from "../../hooks/message.hook";
 
 export interface AddPropertyProps {
 	name: string;
@@ -12,21 +12,15 @@ const AddProperty = () => {
 
 	const { register, handleSubmit, watch, errors } = useForm<AddPropertyProps>();
 	const router = useRouter()
+	const tost = useMessage()
+
 	const onSubmit = async (data : AddPropertyProps) => {
 		try{
 			await axios.post('http://localhost:5000/properties/', data)
 			router.push('/')
-			toast.success('Свойство добавленно успешно', {
-				position: "top-right",
-				autoClose: 5000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				});
+			tost('Свойство добавленно успешно', true)
 		} catch(err){
-			toast(`Ошибка!\n${err.resonse.data}`)
+			tost(`Ошибка!\n${err.response ? err.response.data : err}`, false)
 		}
 	}
 
@@ -42,4 +36,3 @@ const AddProperty = () => {
 }
 
 export default AddProperty
-
