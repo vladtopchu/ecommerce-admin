@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import NavigationCard from "../components/navigation-card";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
 			<NavigationCard title="Свойства" links={['/add/property', '/list/property']}/>
 			<NavigationCard title="Категории" links={['/add/category', '/list/category']}/>
 			<NavigationCard title="Пользователи" links={['/add/user', '/list/user']}/>
+			<ToastContainer/>
     </div>
 	)
 }

@@ -5,6 +5,12 @@ module.exports = {
 		extend: {
 		 width: {
 			 'inherit' : 'inherit'
+		 },
+		 margin: {
+			 '0.25' : '0.060rem'
+		 },
+		 borderWidth: {
+			 '12' : '12px'
 		 }
 		}
 	},
