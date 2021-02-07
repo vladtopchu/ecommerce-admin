@@ -12,15 +12,15 @@ const AddProperty = () => {
 
 	const { register, handleSubmit, watch, errors } = useForm<AddPropertyProps>();
 	const router = useRouter()
-	const tost = useMessage()
+	const toast = useMessage()
 
 	const onSubmit = async (data : AddPropertyProps) => {
 		try{
 			await axios.post('http://localhost:5000/properties/', data)
 			router.push('/')
-			tost('Свойство добавленно успешно', true)
+			toast('Свойство добавленно успешно', true)
 		} catch(err){
-			tost(`Ошибка!\n${err.response ? err.response.data : err}`, false)
+			toast(`Ошибка!\n${err.response ? err.response.data : err}`, false)
 		}
 	}
 
