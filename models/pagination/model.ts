@@ -1,7 +1,7 @@
 interface PaginationModel {
-	totalPages: number;
-	totalDocuments: number;
-	current: number;
+	totalPages?: number;
+	totalDocuments?: number;
+	current?: number;
 }
 
 export default PaginationModel
